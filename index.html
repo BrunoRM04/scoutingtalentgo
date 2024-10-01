@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoutingTalentoGo | Inicio</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="public/images/marca/icono rojo.png">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="seccion-header izquierda">
+            <div class="logo">
+                <a href="index.html"><img src="public/images/marca/logo rojo.png" alt="Logotipo"></a>
+            </div>
+        </div>
+        <div class="seccion-header derecha">
+            <div class="icono-hamburguesa" onclick="mostrarMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <div id="menu-lateral" class="menu-lateral">
+        <a href="#" class="boton-cerrar" onclick="cerrarMenu()">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
+        <a href="futbolistas.html"><i class="fas fa-futbol"></i> FUTBOLISTAS</a>
+        <a href="representantes.html"><i class="fa-solid fa-briefcase"></i> REPRESENTANTES</a>
+        <a href="entrenadores.html"><i class="fas fa-user-tie"></i> ENTRENADORES</a>
+        <a href="clubes.html"><i class="fas fa-building"></i> CLUBES</a>
+        <a href="quienessomos.html"><i class="fa-solid fa-question"></i> QUIENES SOMOS</a>
+        <div class="submenu">
+            <a href="register.html" class="submenu-toggle" onclick="toggleSubmenu(event)">
+                <i class="fas fa-user-plus"></i> REGISTRARSE
+                <i class="fas fa-caret-down flecha"></i>
+            </a>
+            <div class="submenu-contenido">
+                <a href="./public/html/register/registro-futbolista.html"><i class="fas fa-futbol"></i> FUTBOLISTA</a>
+                <a href="./public/html/register/registro-representante.html"><i class="fa-solid fa-briefcase"></i> REPRESENTANTE</a>
+                <a href="./public/html/register/registro-entrenador.html"><i class="fas fa-user-tie"></i> ENTRENADOR</a>
+                <a href="./public/html/register/registro-clubes.html"><i class="fas fa-building"></i> CLUB</a>
+            </div>
+        </div>
+        <a href="micuenta.html"><i class="fas fa-user"></i> MI CUENTA</a>
+    </div>
+    <!-- HEADER -->
+
+    <main>
+        <!-- CONTENEDORES -->
+        <div class="contenedor-negro">
+            <h1>Explora Jugadores Talentosos</h1>
+            <p>Encuentra a los mejores jugadores jóvenes que están listos para dar el salto a niveles profesionales.</p>
+            <button>Ver Jugadores ></button>
+        </div>
+        <div class="contenedor-rojo">
+            <h1>Representantes En Búsqueda</h1>
+            <p>Conéctate con agentes que buscan descubrir nuevos talentos y ayudarlos a alcanzar el éxito.</p>
+            <button>Ver Representantes ></button>
+        </div>
+        <div class="contenedor-negro">
+            <h1>Entrenadores Activos Disponibles</h1>
+            <p>Descubre entrenadores activos que están listos para ayudarte a alcanzar tu máximo potencial. Encuentra profesionales especializados que te guiarán en tu desarrollo deportivo, tanto a nivel físico como estratégico.</p>
+            <button>Ver Entrenadores ></button>
+        </div>
+        <div class="contenedor-rojo">
+            <h1>Clubes en Búsqueda de Talento</h1>
+            <p>Accede a una base de datos de jugadores con perfiles verificados y habilidades destacadas.</p>
+            <button>Ver Clubes ></button>
+        </div>
+        <div class="indicador">
+            <div class="barra"></div>
+            <div class="punto"></div>
+        </div>
+        <!-- CONTENEDORES -->
+    </main>
+
+    <footer class="pie-pagina"> <!-- FOOTER -->
+        <div class="pie-pagina__enlaces">
+            <a href="#enlace1" class="pie-pagina__enlace">INICIO</a>
+            <a href="#enlace2" class="pie-pagina__enlace">QUIENES SOMOS</a>
+            <a href="#enlace3" class="pie-pagina__enlace">CLUBES</a>
+            <a href="#enlace4" class="pie-pagina__enlace">REGISTRARSE</a>
+        </div>
+        <div class="pie-pagina__redes-sociales">
+            <a href="https://instagram.com" class="pie-pagina__icono-social" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" class="pie-pagina__icono-social" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <div class="pie-pagina__contacto">
+            <p class="pie-pagina__info-contacto">Contacto: scoutingtalentgo@gmail.com | Tel: +599 94 252 402</p>
+            <p class="pie-pagina__ubicacion">Ubicación: Montevideo, Uruguay.</p>
+        </div>
+
+        <hr class="pie-pagina__separador">
+
+        <div class="pie-pagina__copyright">
+            &copy; 2024 ScoutingTalentoGo. Todos los derechos reservados.
+        </div>
+    </footer> <!-- FOOTER -->
+
+    <script>
+        // MENÚ HEADER
+        function mostrarMenu() {
+            document.getElementById('menu-lateral').style.width = '250px';
+        }
+        function cerrarMenu() {
+            document.getElementById('menu-lateral').style.width = '0';
+        }
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            var submenuContent = event.currentTarget.nextElementSibling;
+            var flecha = event.currentTarget.querySelector('.flecha');
+
+            if (submenuContent.classList.contains('activo')) {
+                submenuContent.classList.remove('activo');
+                flecha.classList.remove('fa-caret-up');
+                flecha.classList.add('fa-caret-down');
+            } else {
+                submenuContent.classList.add('activo');
+                flecha.classList.remove('fa-caret-down');
+                flecha.classList.add('fa-caret-up');
+            }
+        }
+        // MENÚ HEADER
+
+        // SCROLL BARRA
+        window.addEventListener('scroll', function () {
+            const punto = document.querySelector('.punto');
+            const barra = document.querySelector('.barra');
+            const contenedores = document.querySelectorAll('.contenedor-negro, .contenedor-rojo');
+            const alturaTotal = document.body.scrollHeight - window.innerHeight;
+            const scrollY = window.scrollY;
+            const porcentajeScroll = scrollY / alturaTotal;
+            const posicionPunto = porcentajeScroll * barra.offsetHeight;
+            punto.style.top = posicionPunto + 'px';
+            let contenedorActual = 0;
+            contenedores.forEach((contenedor, index) => {
+                if (scrollY >= contenedor.offsetTop - window.innerHeight / 2) {
+                    contenedorActual = index;
+                }
+            });
+            if (contenedores[contenedorActual].classList.contains('contenedor-negro')) {
+                punto.style.backgroundColor = '#ff5757';
+            } else {
+                punto.style.backgroundColor = '#272727';
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const contenedores = document.querySelectorAll('.contenedor-negro, .contenedor-rojo');
+            const opciones = {
+                root: null, 
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+            const callback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(callback, opciones);
+            contenedores.forEach(contenedor => {
+                observer.observe(contenedor);
+            });
+        });
+        // SCROLL BARRA
+    </script>
+
+</body>
+
+</html>

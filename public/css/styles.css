@@ -1,0 +1,1389 @@
+/* DATOS GENERALES */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Exo 2", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* DATOS GENERALES */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #272727;
+  padding: 10px 20px;
+  color: white;
+}
+
+.seccion-header {
+  flex: 1;
+}
+
+.seccion-header.izquierda {
+  text-align: left;
+}
+
+.seccion-header.derecha {
+  text-align: right;
+}
+
+.logo img {
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 35px;
+  }
+}
+
+.icono-hamburguesa {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.icono-hamburguesa span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #ff5757;
+  margin: 5px 0;
+  transition: background-color 0.3s;
+}
+
+.icono-hamburguesa:hover span {
+  background-color: white;
+}
+
+.menu-lateral {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #272727;
+  overflow-x: hidden;
+  transition: width 0.5s;
+  padding-top: 60px;
+}
+
+.menu-lateral a {
+  padding: 15px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ff5757;
+  display: block;
+  transition: color 0.3s;
+}
+
+.menu-lateral a i {
+  margin-right: 15px;
+}
+
+.menu-lateral a:hover {
+  color: white;
+}
+
+.boton-cerrar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+  text-decoration: none;
+  color: #ff5757;
+  transition: color 0.3s;
+}
+
+.boton-cerrar:hover {
+  color: white;
+}
+
+.submenu {
+  position: relative;
+}
+
+.submenu-toggle {
+  cursor: pointer;
+}
+
+.submenu-toggle .flecha {
+  float: right;
+  margin-right: 0;
+}
+
+.submenu-contenido {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background-color: #ff5757;
+}
+
+.submenu-contenido.activo {
+  max-height: 500px;
+}
+
+.submenu-contenido a {
+  padding: 15px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #272727;
+  display: block;
+  transition: color 0.3s;
+}
+
+.submenu-contenido a i {
+  margin-right: 15px;
+}
+
+.submenu-contenido a:hover {
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .menu-lateral a {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+
+  .submenu-contenido a {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .boton-cerrar {
+    font-size: 30px;
+  }
+}
+
+/* HEADER */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONTENEDORES - INDEX.HTML */
+
+.contenedor-negro,
+.contenedor-rojo {
+  padding: 50px;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.contenedor-negro.visible,
+.contenedor-rojo.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contenedor-negro {
+  background-color: #272727;
+  color: #ff5757;
+}
+
+.contenedor-rojo {
+  background-color: #ff5757;
+  color: #272727;
+}
+
+.contenedor-negro h1,
+.contenedor-rojo h1 {
+  font-size: 4em;
+  margin-bottom: 0.2em;
+}
+
+.contenedor-negro p,
+.contenedor-rojo p {
+  font-size: 2em;
+  margin-top: 0;
+  color: white;
+}
+
+.contenedor-negro button,
+.contenedor-rojo button {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+  border: 2px solid currentColor;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 1em;
+}
+
+.contenedor-negro button:hover,
+.contenedor-rojo button:hover {
+  color: white;
+}
+
+.indicador {
+  position: fixed;
+  top: 10%;
+  right: 30px;
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.barra {
+  position: relative;
+  width: 4px;
+  height: 100%;
+  background-color: white;
+}
+
+.punto {
+  position: absolute;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #ff5757;
+  border-radius: 50%;
+  transform: translate(-50%, 0);
+  transition: top 0.3s ease-out, background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+
+  .contenedor-negro h1,
+  .contenedor-rojo h1 {
+    font-size: 3em;
+  }
+
+  .contenedor-negro p,
+  .contenedor-rojo p {
+    font-size: 1.5em;
+  }
+
+  .contenedor-negro button,
+  .contenedor-rojo button {
+    font-size: 1.2em;
+    padding: 12px 24px;
+  }
+
+  .indicador {
+    right: 20px;
+  }
+
+  .punto {
+    width: 12px;
+    height: 12px;
+  }
+
+  .barra {
+    width: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .contenedor-negro h1,
+  .contenedor-rojo h1 {
+    font-size: 2em;
+  }
+
+  .contenedor-negro p,
+  .contenedor-rojo p {
+    font-size: 1.2em;
+  }
+
+  .contenedor-negro button,
+  .contenedor-rojo button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+
+  .indicador {
+    right: 15px;
+  }
+
+  .punto {
+    width: 10px;
+    height: 10px;
+  }
+
+  .barra {
+    width: 2px;
+  }
+}
+
+/* CONTENEDORES - INDEX.HTML */
+
+
+
+
+
+
+
+
+
+
+.explicacion-registro {
+  background-color: #272727;
+  width: 100%;
+  padding-top: 60px; 
+}
+
+.explicacion-registro .contenido {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.explicacion-registro h1 {
+  color: #ff5757;
+  margin-bottom: 20px;
+}
+
+.explicacion-registro p {
+  margin-bottom: 20px;
+}
+
+.explicacion-registro span {
+  font-weight: bold;
+  color: #ff5757;
+}
+
+.contenedor {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #272727;
+  color: #ff5757;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.formulario-registro {
+  width: 100%;
+  max-width: 800px;
+  background-color: #272727;
+  padding: 40px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.titulo-paso,
+.subtitulo-paso {
+  text-align: center;
+  color: #ff5757;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  font-size: 2em;
+}
+
+.subtitulo-paso {
+  font-size: 1.5em;
+}
+
+.etiqueta {
+  display: block;
+  margin-top: 15px;
+  color: #ff5757;
+  font-size: 1em;
+}
+
+.input-texto,
+.input-fecha,
+.selector-pais,
+.input-email,
+.input-contraseña,
+.input-telefono,
+.selector-posicion,
+.selector-pie,
+.selector-educacion,
+.input-altura,
+.input-peso,
+.input-club-actual,
+.input-nombre-club,
+.input-pais-club,
+.input-goles,
+.input-asistencias,
+.input-porterias,
+.input-partidos,
+.input-minutos,
+.input-tarjetas-amarillas,
+.input-tarjetas-rojas,
+.input-fecha-inicio,
+.input-fecha-fin,
+.input-video,
+.input-enlace-red,
+.textarea-descripcion {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #ff5757;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ff5757;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.input-foto-perfil {
+  padding: 3px;
+}
+
+.textarea-descripcion {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.input-texto::placeholder,
+.input-fecha::placeholder,
+.selector-pais::placeholder,
+.input-email::placeholder,
+.input-contraseña::placeholder,
+.input-telefono::placeholder,
+.selector-posicion::placeholder,
+.selector-pie::placeholder,
+.selector-educacion::placeholder,
+.input-altura::placeholder,
+.input-peso::placeholder,
+.input-club-actual::placeholder,
+.input-nombre-club::placeholder,
+.input-pais-club::placeholder,
+.input-goles::placeholder,
+.input-asistencias::placeholder,
+.input-porterias::placeholder,
+.input-partidos::placeholder,
+.input-minutos::placeholder,
+.input-tarjetas-amarillas::placeholder,
+.input-tarjetas-rojas::placeholder,
+.input-fecha-inicio::placeholder,
+.input-fecha-fin::placeholder,
+.input-video::placeholder,
+.input-enlace-red::placeholder,
+.textarea-descripcion::placeholder {
+  color: #ff5757;
+}
+
+.input-texto:focus,
+.input-fecha:focus,
+.selector-pais:focus,
+.input-email:focus,
+.input-contraseña:focus,
+.input-telefono:focus,
+.selector-posicion:focus,
+.selector-pie:focus,
+.selector-educacion:focus,
+.input-altura:focus,
+.input-peso:focus,
+.input-club-actual:focus,
+.input-nombre-club:focus,
+.input-pais-club:focus,
+.input-goles:focus,
+.input-asistencias:focus,
+.input-porterias:focus,
+.input-partidos:focus,
+.input-minutos:focus,
+.input-tarjetas-amarillas:focus,
+.input-tarjetas-rojas:focus,
+.input-fecha-inicio:focus,
+.input-fecha-fin:focus,
+.input-video:focus,
+.input-enlace-red:focus,
+.textarea-descripcion:focus {
+  outline: none;
+  border-color: #ff5757;
+  box-shadow: 0 0 5px rgba(255, 87, 87, 0.5);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+  border: 2px solid currentColor;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button i {
+  margin-left: 5px;
+}
+
+button:hover {
+  color: white;
+  background-color: #ff5757;
+}
+
+.botones-navegacion {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.boton-anterior,
+.boton-siguiente,
+.boton-enviar {
+  width: 48%;
+  margin-top: 10px;
+}
+
+.boton-enviar {
+  display: none;
+}
+
+.pestaña {
+  display: none;
+}
+
+.pestaña-activa {
+  display: block;
+}
+
+.boton-agregar,
+.boton-eliminar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-agregar i,
+.boton-eliminar i {
+  margin-right: 5px;
+}
+
+.boton-agregar {
+  background-color: transparent;
+  border: 2px solid #ff5757;
+  color: #ff5757;
+  border-radius: 5px;
+}
+
+.boton-eliminar {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border: 2px solid currentColor;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.boton-eliminar:hover {
+  color: white;
+  background-color: #e04e4e;
+}
+
+.entrada-club,
+.subida-video,
+.entrada-red-social {
+  background-color: #333;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.entrada-club input,
+.subida-video input,
+.entrada-red-social input,
+.entrada-red-social select,
+.textarea-descripcion {
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contenedor-progreso {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.barra-progreso {
+  width: 100%;
+  background-color: #555;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 10px;
+  margin-bottom: 20px;
+}
+
+.progreso {
+  height: 100%;
+  width: 33.33%;
+  background-color: #ff5757;
+  transition: width 0.4s ease;
+}
+
+.pasos-progreso {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pasos-progreso::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #555;
+  z-index: 0;
+}
+
+.paso {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background-color: #555;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.paso.activo {
+  background-color: #ff5757;
+  transform: scale(1.2);
+}
+
+.paso::after {
+  content: attr(data-title);
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #ff5757;
+  white-space: nowrap;
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .formulario-registro {
+    padding: 30px;
+  }
+
+  .titulo-paso {
+    font-size: 1.8em;
+  }
+
+  .subtitulo-paso {
+    font-size: 1.3em;
+  }
+
+  button {
+    font-size: 1.1em;
+  }
+
+  .paso {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .paso::after {
+    top: 35px;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .formulario-registro {
+    padding: 50px;
+  }
+
+  .titulo-paso {
+    font-size: 2.2em;
+  }
+
+  .subtitulo-paso {
+    font-size: 1.6em;
+  }
+
+  button {
+    font-size: 1.3em;
+  }
+
+  .paso {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .paso::after {
+    top: 45px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .botones-navegacion {
+    flex-direction: column;
+  }
+
+  .boton-anterior,
+  .boton-siguiente,
+  .boton-enviar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .pasos-progreso::after {
+    display: none;
+  }
+
+  .paso::after {
+    display: none;
+  }
+
+  .paso {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .titulo-paso {
+    font-size: 1.5em;
+    margin-top: 30px;
+  }
+
+  .subtitulo-paso {
+    font-size: 1.2em;
+    margin-top: 30px;
+  }
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #ff5757;
+}
+
+.toggle-password i {
+  font-size: 1em;
+}
+
+@media (max-width: 600px) {
+
+  .entrada-club,
+  .subida-video,
+  .entrada-red-social {
+    padding: 10px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 1em;
+  }
+
+  .etiqueta {
+    font-size: 0.9em;
+  }
+
+  .input-texto,
+  .input-fecha,
+  .selector-pais,
+  .input-email,
+  .input-contraseña,
+  .input-telefono,
+  .selector-posicion,
+  .selector-pie,
+  .selector-educacion,
+  .input-altura,
+  .input-peso,
+  .input-club-actual,
+  .input-nombre-club,
+  .input-pais-club,
+  .input-goles,
+  .input-asistencias,
+  .input-porterias,
+  .input-partidos,
+  .input-minutos,
+  .input-tarjetas-amarillas,
+  .input-tarjetas-rojas,
+  .input-fecha-inicio,
+  .input-fecha-fin,
+  .input-video,
+  .input-enlace-red,
+  .textarea-descripcion {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff5757;
+  box-shadow: 0 0 5px rgba(255, 87, 87, 0.5);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 87, 87, 0.5);
+}
+
+.profile-pic-container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.profile-pic-container .etiqueta {
+  color: #ff5757;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.upload-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-foto-perfil {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.custom-upload {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #ff5757;
+  color: #ff5757;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+
+.custom-upload i {
+  margin-right: 8px;
+}
+
+.custom-upload:hover {
+  background-color: #ff5757;
+  color: #fff;
+}
+
+.preview {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #ff5757;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .custom-upload {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.idiomas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.idiomas label {
+  background-color: #333;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ff5757;
+  font-size: 1em;
+  transition: background-color 0.3s, color 0.3s;
+  flex: 1 1 calc(33.333% - 30px);
+  text-align: center;
+}
+
+.idiomas input[type="checkbox"] {
+  display: none;
+}
+
+.idiomas input[type="checkbox"]:checked + label {
+  background-color: #ff5757;
+  color: #fff;
+}
+
+.idiomas label:hover {
+  background-color: #444;
+}
+
+.mensaje-error {
+  color: #e04e4e;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+  .idiomas label {
+      flex: 1 1 100%; 
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .idiomas label {
+      flex: 1 1 calc(50% - 30px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .idiomas label {
+      flex: 1 1 calc(33.333% - 30px); 
+  }
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.opciones label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ff5757;
+  font-size: 1em;
+}
+
+.opciones input[type="radio"],
+.opciones input[type="checkbox"] {
+  display: none;
+}
+
+.opciones .custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff5757;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+}
+
+.opciones input[type="radio"]:checked + .custom-radio::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff5757;
+  border-radius: 50%;
+}
+
+.opciones label:hover .custom-radio {
+  border-color: #e04e4e;
+}
+
+.opciones input[type="radio"]:checked + .custom-radio {
+  border-color: #ff5757;
+  background-color: transparent;
+}
+
+.opciones .custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff5757;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.opciones input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background-color: #ff5757;
+  border-radius: 3px;
+}
+
+.opciones label:hover .custom-checkbox {
+  border-color: #e04e4e;
+}
+
+.opciones input[type="checkbox"]:checked + .custom-checkbox {
+  border-color: #ff5757;
+  background-color: transparent;
+}
+
+.selector-personalizado {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: 2px solid #ff5757;
+  color: #ff5757;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1em;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ff5757" viewBox="0 0 20 20"><polygon points="0,0 20,0 10,10"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+}
+
+.selector-personalizado:focus {
+  outline: none;
+  border-color: #ff5757;
+  box-shadow: 0 0 5px rgba(255, 87, 87, 0.5);
+}
+
+.selector-personalizado option {
+  background-color: #272727;
+  color: #ff5757;
+}
+
+/* Estilos para el botón "Actualmente" */
+.actualmente-opcion label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ff5757;
+  font-size: 1em;
+}
+
+.actualmente-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff5757;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.actualmente-checkbox::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.opciones input[type="checkbox"]:checked + .actualmente-checkbox::after {
+  background-color: #ff5757;
+}
+
+.actualmente-opcion label:hover .actualmente-checkbox {
+  border-color: #e04e4e;
+}
+
+/* REGISTRO - FORMULARIO */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+.pie-pagina {
+  background-color: #ff5757;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.pie-pagina a {
+  color: #272727;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.pie-pagina a:hover {
+  color: white;
+}
+
+.pie-pagina__enlaces {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.pie-pagina__enlace {
+  font-size: 15px;
+}
+
+.pie-pagina__redes-sociales {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.pie-pagina__icono-social {
+  color: #272727;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.pie-pagina__icono-social:hover {
+  color: white;
+}
+
+.pie-pagina__contacto {
+  margin-bottom: 30px;
+}
+
+.pie-pagina__info-contacto,
+.pie-pagina__ubicacion {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.pie-pagina__separador {
+  border: none;
+  border-top: 1px solid #272727;
+  margin: 20px 0;
+}
+
+.pie-pagina__copyright {
+  font-size: 12px;
+  color: #272727;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .pie-pagina__enlaces {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pie-pagina__redes-sociales {
+    flex-wrap: nowrap;
+  }
+
+  .pie-pagina__icono-social {
+    font-size: 18px;
+  }
+
+  .pie-pagina__info-contacto,
+  .pie-pagina__ubicacion {
+    font-size: 10px;
+  }
+
+  .pie-pagina {
+    padding: 30px 15px;
+  }
+}
+
+/* FOOTER */

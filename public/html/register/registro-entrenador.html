@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoutingTalentoGo | Registro De Entrenador</title>
+    <link rel="stylesheet" href="../../../public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../../../public/images/marca/icono rojo.png">
+</head>
+
+<body>
+
+        <!-- HEADER -->
+        <header>
+            <div class="seccion-header izquierda">
+                <div class="logo">
+                    <a href="../../../index.html"><img src="../../../public/images/marca/logo rojo.png" alt="Logotipo"></a>
+                </div>
+            </div>
+            <div class="seccion-header derecha">
+                <div class="icono-hamburguesa" onclick="mostrarMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div id="menu-lateral" class="menu-lateral">
+            <a href="#" class="boton-cerrar" onclick="cerrarMenu()">&times;</a>
+            <a href="../../../index.html"><i class="fas fa-home"></i> INICIO</a>
+            <a href="../../../futbolistas.html"><i class="fas fa-futbol"></i> FUTBOLISTAS</a>
+            <a href="../../../representantes.html"><i class="fa-solid fa-briefcase"></i> REPRESENTANTES</a>
+            <a href="../../../entrenadores.html"><i class="fas fa-user-tie"></i> ENTRENADORES</a>
+            <a href="../../../clubes.html"><i class="fas fa-building"></i> CLUBES</a>
+            <a href="../../../quienessomos.html"><i class="fa-solid fa-question"></i> QUIENES SOMOS</a>
+            <div class="submenu">
+                <a href="../../../register.html" class="submenu-toggle" onclick="toggleSubmenu(event)">
+                    <i class="fas fa-user-plus"></i> REGISTRARSE
+                    <i class="fas fa-caret-down flecha"></i>
+                </a>
+                <div class="submenu-contenido">
+                    <a href="registro-futbolista.html"><i class="fas fa-futbol"></i> FUTBOLISTA</a>
+                    <a href="registro-representante.html"><i class="fa-solid fa-briefcase"></i> REPRESENTANTE</a>
+                    <a href="registro-entrenador.html"><i class="fas fa-user-tie"></i> ENTRENADOR</a>
+                    <a href="registro-clubes.html"><i class="fas fa-building"></i> CLUB</a>
+                </div>
+            </div>
+            <a href="../../../micuenta.html"><i class="fas fa-user"></i> MI CUENTA</a>
+        </div>
+        <!-- HEADER -->
+
+    <main class="principal">
+        <div class="explicacion-registro">
+            <div class="contenido">
+                <h1>¡Bienvenido <span>Entrenador</span>!</h1>
+                <p>Nos complace enormemente que consideres unirte a <span>ScoutingTalentoGo</span>, la plataforma líder en conectar a <span>entrenadores</span>, <span>representantes</span> y <span>clubes</span> de todo el mundo. Aquí encontrarás un espacio dedicado a potenciar tu <span>carrera profesional</span>, ampliando tu <span>red de contactos</span> y mostrando todo tu <span>potencial</span> a quienes buscan nuevos talentos para sus proyectos.</p>
+                <p>Al registrarte como <span>entrenador</span>, obtendrás tu propio <span>usuario</span> con acceso a un <span>perfil</span> que podrás editar en cualquier momento. Podrás destacar tus <span>habilidades</span>, <span>logros</span> y <span>experiencias</span>, así como conectarte con <span>colegas</span>, <span>representantes</span> y <span>clubes</span> interesados en descubrir nuevos talentos para sus proyectos.</p>
+                <p>Completa el siguiente formulario de registro para crear tu <span>perfil profesional</span>. Una vez completado, tu perfil aparecerá disponible en la sección de <span>"Entrenadores"</span>, aumentando tus posibilidades de ser descubierto por <span>representantes</span> y <span>clubes</span> de todo el mundo.</p>
+                <p>En <span>ScoutingTalentoGo</span>, valoramos la <span>pasión</span> y el <span>compromiso</span>. Estamos aquí para apoyarte en cada paso, brindándote una plataforma segura y eficiente para desarrollar tu <span>carrera</span> y alcanzar tus <span>objetivos</span>. ¡Únete a nosotros y forma parte de una comunidad dedicada a impulsar el talento en el fútbol!</p>
+                <p>Si tienes alguna duda durante el proceso de registro, no dudes en <span>contactarnos</span>. Estamos aquí para ayudarte.</p>
+                <p>¡Dale un impulso a tu <span>carrera</span> y muestra todo tu <span>potencial</span> en nuestra plataforma!</p>
+            </div>
+        </div>
+    
+        <div class="contenedor"> <!-- FORMULARIO -->
+            <form id="regForm" class="formulario-registro">
+                <div class="contenedor-progreso">
+                    <div class="barra-progreso">
+                        <div class="progreso" id="progress"></div>
+                    </div>
+                    <div class="pasos-progreso">
+                        <div class="paso activo" data-title="Datos Personales">1</div>
+                        <div class="paso" data-title="Información Profesional">2</div>
+                        <div class="paso" data-title="Contenido Multimedia">3</div>
+                    </div>
+                </div>
+    
+                <!-- Pestaña 1: Datos Personales -->
+                <div class="pestaña pestaña-activa">
+                    <h2 class="titulo-paso">Datos Personales</h2>
+    
+                    <label for="fullname" class="etiqueta">Nombre y Apellido:</label>
+                    <input type="text" id="fullname" name="fullname" class="input-texto" required>
+    
+                    <label for="birthdate" class="etiqueta">Fecha de Nacimiento:</label>
+                    <input type="date" id="birthdate" name="birthdate" class="input-fecha" required>
+    
+                    <label for="educationLevel" class="etiqueta">Nivel Educativo (Opcional):</label>
+                    <select id="educationLevel" name="educationLevel" class="selector-personalizado">
+                        <option value="">Selecciona tu nivel educativo</option>
+                        <option value="Primaria">Primaria</option>
+                        <option value="Secundaria">Secundaria</option>
+                        <option value="Universidad">Universidad</option>
+                        <option value="Postgrado">Postgrado</option>
+                    </select>
+    
+                    <label class="etiqueta">¿Estás dispuesto a trasladarte?</label>
+                    <div class="opciones">
+                        <label>
+                            <input type="radio" id="relocateYes" name="relocate" value="Sí" required>
+                            <span class="custom-radio"></span>
+                            Sí
+                        </label>
+                        <label>
+                            <input type="radio" id="relocateNo" name="relocate" value="No">
+                            <span class="custom-radio"></span>
+                            No
+                        </label>
+                    </div>
+    
+                    <label for="document" class="etiqueta">N° De Documento:</label>
+                    <input type="text" id="document" name="document" class="input-texto" required>
+    
+                    <label for="country" class="etiqueta">País de Residencia:</label>
+                    <select id="country" name="country" class="selector-personalizado" required>
+                        <option value="">Selecciona tu país</option>
+                        <optgroup label="América">
+                            <option value="AG">Antigua y Barbuda</option>
+                            <option value="AR">Argentina</option>
+                            <option value="BS">Bahamas</option>
+                            <option value="BB">Barbados</option>
+                            <option value="BZ">Belice</option>
+                            <option value="BO">Bolivia</option>
+                            <option value="BR">Brasil</option>
+                            <option value="CA">Canadá</option>
+                            <option value="CL">Chile</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CR">Costa Rica</option>
+                            <option value="CU">Cuba</option>
+                            <option value="DM">Dominica</option>
+                            <option value="DO">República Dominicana</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="SV">El Salvador</option>
+                            <option value="US">Estados Unidos</option>
+                            <option value="GD">Granada</option>
+                            <option value="GT">Guatemala</option>
+                            <option value="GY">Guyana</option>
+                            <option value="HT">Haití</option>
+                            <option value="HN">Honduras</option>
+                            <option value="JM">Jamaica</option>
+                            <option value="KN">San Cristóbal y Nieves</option>
+                            <option value="LC">Santa Lucía</option>
+                            <option value="MX">México</option>
+                            <option value="NI">Nicaragua</option>
+                            <option value="PA">Panamá</option>
+                            <option value="PY">Paraguay</option>
+                            <option value="PE">Perú</option>
+                            <option value="SR">Surinam</option>
+                            <option value="VC">San Vicente y las Granadinas</option>
+                            <option value="TT">Trinidad y Tobago</option>
+                            <option value="UY">Uruguay</option>
+                            <option value="VE">Venezuela</option>
+                        </optgroup>
+                        <optgroup label="Europa">
+                            <option value="AL">Albania</option>
+                            <option value="DE">Alemania</option>
+                            <option value="AD">Andorra</option>
+                            <option value="AM">Armenia</option>
+                            <option value="AT">Austria</option>
+                            <option value="BE">Bélgica</option>
+                            <option value="BY">Bielorrusia</option>
+                            <option value="BA">Bosnia y Herzegovina</option>
+                            <option value="BG">Bulgaria</option>
+                            <option value="CY">Chipre</option>
+                            <option value="VA">Ciudad del Vaticano</option>
+                            <option value="HR">Croacia</option>
+                            <option value="DK">Dinamarca</option>
+                            <option value="SK">Eslovaquia</option>
+                            <option value="SI">Eslovenia</option>
+                            <option value="ES">España</option>
+                            <option value="EE">Estonia</option>
+                            <option value="FI">Finlandia</option>
+                            <option value="FR">Francia</option>
+                            <option value="GE">Georgia</option>
+                            <option value="GR">Grecia</option>
+                            <option value="HU">Hungría</option>
+                            <option value="IE">Irlanda</option>
+                            <option value="IS">Islandia</option>
+                            <option value="IT">Italia</option>
+                            <option value="XK">Kosovo</option>
+                            <option value="LV">Letonia</option>
+                            <option value="LI">Liechtenstein</option>
+                            <option value="LT">Lituania</option>
+                            <option value="LU">Luxemburgo</option>
+                            <option value="MT">Malta</option>
+                            <option value="MD">Moldavia</option>
+                            <option value="MC">Mónaco</option>
+                            <option value="ME">Montenegro</option>
+                            <option value="NO">Noruega</option>
+                            <option value="NL">Países Bajos</option>
+                            <option value="PL">Polonia</option>
+                            <option value="PT">Portugal</option>
+                            <option value="GB">Reino Unido</option>
+                            <option value="CZ">República Checa</option>
+                            <option value="MK">República de Macedonia</option>
+                            <option value="RO">Rumania</option>
+                            <option value="RU">Rusia</option>
+                            <option value="SM">San Marino</option>
+                            <option value="RS">Serbia</option>
+                            <option value="SE">Suecia</option>
+                            <option value="CH">Suiza</option>
+                            <option value="TR">Turquía</option>
+                            <option value="UA">Ucrania</option>
+                        </optgroup>
+                        <optgroup label="Asia">
+                            <option value="AF">Afganistán</option>
+                            <option value="SA">Arabia Saudita</option>
+                            <option value="AM">Armenia</option>
+                            <option value="AZ">Azerbaiyán</option>
+                            <option value="BH">Baréin</option>
+                            <option value="BD">Bangladesh</option>
+                            <option value="BT">Bután</option>
+                            <option value="BN">Brunéi</option>
+                            <option value="KH">Camboya</option>
+                            <option value="CN">China</option>
+                            <option value="CY">Chipre</option>
+                            <option value="KP">Corea del Norte</option>
+                            <option value="KR">Corea del Sur</option>
+                            <option value="AE">Emiratos Árabes Unidos</option>
+                            <option value="PH">Filipinas</option>
+                            <option value="GE">Georgia</option>
+                            <option value="IN">India</option>
+                            <option value="ID">Indonesia</option>
+                            <option value="IQ">Irak</option>
+                            <option value="IR">Irán</option>
+                            <option value="IL">Israel</option>
+                            <option value="JP">Japón</option>
+                            <option value="JO">Jordania</option>
+                            <option value="KZ">Kazajistán</option>
+                            <option value="KG">Kirguistán</option>
+                            <option value="KW">Kuwait</option>
+                            <option value="LA">Laos</option>
+                            <option value="LB">Líbano</option>
+                            <option value="MY">Malasia</option>
+                            <option value="MV">Maldivas</option>
+                            <option value="MN">Mongolia</option>
+                            <option value="MM">Myanmar</option>
+                            <option value="NP">Nepal</option>
+                            <option value="OM">Omán</option>
+                            <option value="PK">Pakistán</option>
+                            <option value="QA">Qatar</option>
+                            <option value="RU">Rusia</option>
+                            <option value="SG">Singapur</option>
+                            <option value="SY">Siria</option>
+                            <option value="LK">Sri Lanka</option>
+                            <option value="TJ">Tayikistán</option>
+                            <option value="TH">Tailandia</option>
+                            <option value="TL">Timor Oriental</option>
+                            <option value="TM">Turkmenistán</option>
+                            <option value="UZ">Uzbekistán</option>
+                            <option value="VN">Vietnam</option>
+                            <option value="YE">Yemen</option>
+                        </optgroup>
+                        <optgroup label="África">
+                            <option value="ZA">Sudáfrica</option>
+                            <option value="DZ">Argelia</option>
+                            <option value="AO">Angola</option>
+                            <option value="BJ">Benín</option>
+                            <option value="BW">Botsuana</option>
+                            <option value="BF">Burkina Faso</option>
+                            <option value="BI">Burundi</option>
+                            <option value="CV">Cabo Verde</option>
+                            <option value="CM">Camerún</option>
+                            <option value="TD">Chad</option>
+                            <option value="KM">Comoras</option>
+                            <option value="CG">Congo</option>
+                            <option value="CD">Congo (Rep. Dem.)</option>
+                            <option value="CI">Costa de Marfil</option>
+                            <option value="DJ">Yibuti</option>
+                            <option value="EG">Egipto</option>
+                            <option value="ER">Eritrea</option>
+                            <option value="ET">Etiopía</option>
+                            <option value="GA">Gabón</option>
+                            <option value="GM">Gambia</option>
+                            <option value="GH">Ghana</option>
+                            <option value="GN">Guinea</option>
+                            <option value="GW">Guinea-Bisáu</option>
+                            <option value="GQ">Guinea Ecuatorial</option>
+                            <option value="KE">Kenia</option>
+                            <option value="LS">Lesoto</option>
+                            <option value="LR">Liberia</option>
+                            <option value="LY">Libia</option>
+                            <option value="MG">Madagascar</option>
+                            <option value="MW">Malaui</option>
+                            <option value="ML">Malí</option>
+                            <option value="MA">Marruecos</option>
+                            <option value="MU">Mauricio</option>
+                            <option value="MR">Mauritania</option>
+                            <option value="MZ">Mozambique</option>
+                            <option value="NA">Namibia</option>
+                            <option value="NE">Níger</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="RW">Ruanda</option>
+                            <option value="EH">Sahara Occidental</option>
+                            <option value="SN">Senegal</option>
+                            <option value="SC">Seychelles</option>
+                            <option value="SL">Sierra Leona</option>
+                            <option value="SO">Somalia</option>
+                            <option value="SS">Sudán del Sur</option>
+                            <option value="SD">Sudán</option>
+                            <option value="SZ">Esuatini</option>
+                            <option value="TZ">Tanzania</option>
+                            <option value="TG">Togo</option>
+                            <option value="TN">Túnez</option>
+                            <option value="UG">Uganda</option>
+                            <option value="ZM">Zambia</option>
+                            <option value="ZW">Zimbabue</option>
+                        </optgroup>
+                        <optgroup label="Oceanía">
+                            <option value="AU">Australia</option>
+                            <option value="FJ">Fiyi</option>
+                            <option value="KI">Kiribati</option>
+                            <option value="MH">Islas Marshall</option>
+                            <option value="FM">Micronesia</option>
+                            <option value="NR">Nauru</option>
+                            <option value="NZ">Nueva Zelanda</option>
+                            <option value="PW">Palaos</option>
+                            <option value="PG">Papúa Nueva Guinea</option>
+                            <option value="SB">Islas Salomón</option>
+                            <option value="TO">Tonga</option>
+                            <option value="TV">Tuvalu</option>
+                            <option value="VU">Vanuatu</option>
+                        </optgroup>
+                    </select>
+
+                    <label for="nationality" class="etiqueta">Nacionalidad:</label>
+                    <select id="nationality" name="nationality" class="selector-personalizado" required>
+                        <option value="">Selecciona tu nacionalidad</option>
+                        <optgroup label="América">
+                            <option value="AG">Antigua y Barbuda</option>
+                            <option value="AR">Argentina</option>
+                            <option value="BS">Bahamas</option>
+                            <option value="BB">Barbados</option>
+                            <option value="BZ">Belice</option>
+                            <option value="BO">Bolivia</option>
+                            <option value="BR">Brasil</option>
+                            <option value="CA">Canadá</option>
+                            <option value="CL">Chile</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CR">Costa Rica</option>
+                            <option value="CU">Cuba</option>
+                            <option value="DM">Dominica</option>
+                            <option value="DO">República Dominicana</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="SV">El Salvador</option>
+                            <option value="US">Estados Unidos</option>
+                            <option value="GD">Granada</option>
+                            <option value="GT">Guatemala</option>
+                            <option value="GY">Guyana</option>
+                            <option value="HT">Haití</option>
+                            <option value="HN">Honduras</option>
+                            <option value="JM">Jamaica</option>
+                            <option value="KN">San Cristóbal y Nieves</option>
+                            <option value="LC">Santa Lucía</option>
+                            <option value="MX">México</option>
+                            <option value="NI">Nicaragua</option>
+                            <option value="PA">Panamá</option>
+                            <option value="PY">Paraguay</option>
+                            <option value="PE">Perú</option>
+                            <option value="SR">Surinam</option>
+                            <option value="VC">San Vicente y las Granadinas</option>
+                            <option value="TT">Trinidad y Tobago</option>
+                            <option value="UY">Uruguay</option>
+                            <option value="VE">Venezuela</option>
+                        </optgroup>
+                        <optgroup label="Europa">
+                            <option value="AL">Albania</option>
+                            <option value="DE">Alemania</option>
+                            <option value="AD">Andorra</option>
+                            <option value="AM">Armenia</option>
+                            <option value="AT">Austria</option>
+                            <option value="BE">Bélgica</option>
+                            <option value="BY">Bielorrusia</option>
+                            <option value="BA">Bosnia y Herzegovina</option>
+                            <option value="BG">Bulgaria</option>
+                            <option value="CY">Chipre</option>
+                            <option value="VA">Ciudad del Vaticano</option>
+                            <option value="HR">Croacia</option>
+                            <option value="DK">Dinamarca</option>
+                            <option value="SK">Eslovaquia</option>
+                            <option value="SI">Eslovenia</option>
+                            <option value="ES">España</option>
+                            <option value="EE">Estonia</option>
+                            <option value="FI">Finlandia</option>
+                            <option value="FR">Francia</option>
+                            <option value="GE">Georgia</option>
+                            <option value="GR">Grecia</option>
+                            <option value="HU">Hungría</option>
+                            <option value="IE">Irlanda</option>
+                            <option value="IS">Islandia</option>
+                            <option value="IT">Italia</option>
+                            <option value="XK">Kosovo</option>
+                            <option value="LV">Letonia</option>
+                            <option value="LI">Liechtenstein</option>
+                            <option value="LT">Lituania</option>
+                            <option value="LU">Luxemburgo</option>
+                            <option value="MT">Malta</option>
+                            <option value="MD">Moldavia</option>
+                            <option value="MC">Mónaco</option>
+                            <option value="ME">Montenegro</option>
+                            <option value="NO">Noruega</option>
+                            <option value="NL">Países Bajos</option>
+                            <option value="PL">Polonia</option>
+                            <option value="PT">Portugal</option>
+                            <option value="GB">Reino Unido</option>
+                            <option value="CZ">República Checa</option>
+                            <option value="MK">República de Macedonia</option>
+                            <option value="RO">Rumania</option>
+                            <option value="RU">Rusia</option>
+                            <option value="SM">San Marino</option>
+                            <option value="RS">Serbia</option>
+                            <option value="SE">Suecia</option>
+                            <option value="CH">Suiza</option>
+                            <option value="TR">Turquía</option>
+                            <option value="UA">Ucrania</option>
+                        </optgroup>
+                        <optgroup label="Asia">
+                            <option value="AF">Afganistán</option>
+                            <option value="SA">Arabia Saudita</option>
+                            <option value="AM">Armenia</option>
+                            <option value="AZ">Azerbaiyán</option>
+                            <option value="BH">Baréin</option>
+                            <option value="BD">Bangladesh</option>
+                            <option value="BT">Bután</option>
+                            <option value="BN">Brunéi</option>
+                            <option value="KH">Camboya</option>
+                            <option value="CN">China</option>
+                            <option value="CY">Chipre</option>
+                            <option value="KP">Corea del Norte</option>
+                            <option value="KR">Corea del Sur</option>
+                            <option value="AE">Emiratos Árabes Unidos</option>
+                            <option value="PH">Filipinas</option>
+                            <option value="GE">Georgia</option>
+                            <option value="IN">India</option>
+                            <option value="ID">Indonesia</option>
+                            <option value="IQ">Irak</option>
+                            <option value="IR">Irán</option>
+                            <option value="IL">Israel</option>
+                            <option value="JP">Japón</option>
+                            <option value="JO">Jordania</option>
+                            <option value="KZ">Kazajistán</option>
+                            <option value="KG">Kirguistán</option>
+                            <option value="KW">Kuwait</option>
+                            <option value="LA">Laos</option>
+                            <option value="LB">Líbano</option>
+                            <option value="MY">Malasia</option>
+                            <option value="MV">Maldivas</option>
+                            <option value="MN">Mongolia</option>
+                            <option value="MM">Myanmar</option>
+                            <option value="NP">Nepal</option>
+                            <option value="OM">Omán</option>
+                            <option value="PK">Pakistán</option>
+                            <option value="QA">Qatar</option>
+                            <option value="RU">Rusia</option>
+                            <option value="SG">Singapur</option>
+                            <option value="SY">Siria</option>
+                            <option value="LK">Sri Lanka</option>
+                            <option value="TJ">Tayikistán</option>
+                            <option value="TH">Tailandia</option>
+                            <option value="TL">Timor Oriental</option>
+                            <option value="TM">Turkmenistán</option>
+                            <option value="UZ">Uzbekistán</option>
+                            <option value="VN">Vietnam</option>
+                            <option value="YE">Yemen</option>
+                        </optgroup>
+                        <optgroup label="África">
+                            <option value="ZA">Sudáfrica</option>
+                            <option value="DZ">Argelia</option>
+                            <option value="AO">Angola</option>
+                            <option value="BJ">Benín</option>
+                            <option value="BW">Botsuana</option>
+                            <option value="BF">Burkina Faso</option>
+                            <option value="BI">Burundi</option>
+                            <option value="CV">Cabo Verde</option>
+                            <option value="CM">Camerún</option>
+                            <option value="TD">Chad</option>
+                            <option value="KM">Comoras</option>
+                            <option value="CG">Congo</option>
+                            <option value="CD">Congo (Rep. Dem.)</option>
+                            <option value="CI">Costa de Marfil</option>
+                            <option value="DJ">Yibuti</option>
+                            <option value="EG">Egipto</option>
+                            <option value="ER">Eritrea</option>
+                            <option value="ET">Etiopía</option>
+                            <option value="GA">Gabón</option>
+                            <option value="GM">Gambia</option>
+                            <option value="GH">Ghana</option>
+                            <option value="GN">Guinea</option>
+                            <option value="GW">Guinea-Bisáu</option>
+                            <option value="GQ">Guinea Ecuatorial</option>
+                            <option value="KE">Kenia</option>
+                            <option value="LS">Lesoto</option>
+                            <option value="LR">Liberia</option>
+                            <option value="LY">Libia</option>
+                            <option value="MG">Madagascar</option>
+                            <option value="MW">Malaui</option>
+                            <option value="ML">Malí</option>
+                            <option value="MA">Marruecos</option>
+                            <option value="MU">Mauricio</option>
+                            <option value="MR">Mauritania</option>
+                            <option value="MZ">Mozambique</option>
+                            <option value="NA">Namibia</option>
+                            <option value="NE">Níger</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="RW">Ruanda</option>
+                            <option value="EH">Sahara Occidental</option>
+                            <option value="SN">Senegal</option>
+                            <option value="SC">Seychelles</option>
+                            <option value="SL">Sierra Leona</option>
+                            <option value="SO">Somalia</option>
+                            <option value="SS">Sudán del Sur</option>
+                            <option value="SD">Sudán</option>
+                            <option value="SZ">Esuatini</option>
+                            <option value="TZ">Tanzania</option>
+                            <option value="TG">Togo</option>
+                            <option value="TN">Túnez</option>
+                            <option value="UG">Uganda</option>
+                            <option value="ZM">Zambia</option>
+                            <option value="ZW">Zimbabue</option>
+                        </optgroup>
+                        <optgroup label="Oceanía">
+                            <option value="AU">Australia</option>
+                            <option value="FJ">Fiyi</option>
+                            <option value="KI">Kiribati</option>
+                            <option value="MH">Islas Marshall</option>
+                            <option value="FM">Micronesia</option>
+                            <option value="NR">Nauru</option>
+                            <option value="NZ">Nueva Zelanda</option>
+                            <option value="PW">Palaos</option>
+                            <option value="PG">Papúa Nueva Guinea</option>
+                            <option value="SB">Islas Salomón</option>
+                            <option value="TO">Tonga</option>
+                            <option value="TV">Tuvalu</option>
+                            <option value="VU">Vanuatu</option>
+                        </optgroup>
+                    </select>
+    
+                    <label class="etiqueta">Idiomas que habla:</label>
+                    <div class="idiomas">
+                        <input type="checkbox" id="idioma-es" name="languages[]" value="Español">
+                        <label for="idioma-es">Español</label>
+    
+                        <input type="checkbox" id="idioma-en" name="languages[]" value="Inglés">
+                        <label for="idioma-en">Inglés</label>
+    
+                        <input type="checkbox" id="idioma-pt" name="languages[]" value="Portugués">
+                        <label for="idioma-pt">Portugués</label>
+    
+                        <input type="checkbox" id="idioma-fr" name="languages[]" value="Francés">
+                        <label for="idioma-fr">Francés</label>
+    
+                        <input type="checkbox" id="idioma-zh" name="languages[]" value="Mandarín">
+                        <label for="idioma-zh">Mandarín</label>
+    
+                        <input type="checkbox" id="idioma-ar" name="languages[]" value="Árabe">
+                        <label for="idioma-ar">Árabe</label>
+    
+                        <input type="checkbox" id="idioma-it" name="languages[]" value="Italiano">
+                        <label for="idioma-it">Italiano</label>
+    
+                        <input type="checkbox" id="idioma-de" name="languages[]" value="Alemán">
+                        <label for="idioma-de">Alemán</label>
+    
+                        <input type="checkbox" id="idioma-hi" name="languages[]" value="Hindi">
+                        <label for="idioma-hi">Hindi</label>
+    
+                        <input type="checkbox" id="idioma-bn" name="languages[]" value="Bengalí">
+                        <label for="idioma-bn">Bengalí</label>
+    
+                        <input type="checkbox" id="idioma-ru" name="languages[]" value="Ruso">
+                        <label for="idioma-ru">Ruso</label>
+    
+                        <input type="checkbox" id="idioma-ja" name="languages[]" value="Japonés">
+                        <label for="idioma-ja">Japonés</label>
+                    </div>
+    
+                    <div id="error-idiomas" class="mensaje-error"></div>
+    
+                    <label for="email" class="etiqueta">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="input-email" required>
+    
+                    <label for="confirmEmail" class="etiqueta">Confirmar Correo Electrónico:</label>
+                    <input type="email" id="confirmEmail" name="confirmEmail" class="input-email" required>
+    
+                    <label for="password" class="etiqueta">Crear Contraseña:</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" class="input-contraseña" required>
+                        <span id="togglePassword" class="toggle-password">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+    
+                    <label for="confirmPassword" class="etiqueta">Confirmar Contraseña:</label>
+                    <div class="password-container">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="input-contraseña" required>
+                        <span id="toggleConfirmPassword" class="toggle-password">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+    
+                    <label for="phone" class="etiqueta">Teléfono:</label>
+                    <div class="campo-telefono">
+                        <input type="tel" id="phone" name="phone" class="input-telefono" placeholder="+Código Número" required>
+                    </div>
+    
+                </div>
+    
+                <!-- Pestaña 2: Información Profesional -->
+                <div class="pestaña">
+                    <h2 class="titulo-paso">Información Profesional</h2>
+    
+                    <label for="licenseNumber" class="etiqueta">Número de Licencia de Entrenador (si aplica):</label>
+                    <input type="text" id="licenseNumber" name="licenseNumber" class="input-texto">
+    
+                    <label for="licenseCategory" class="etiqueta">Categoría de Licencia:</label>
+                    <select id="licenseCategory" name="licenseCategory" class="selector-personalizado" required>
+                        <option value="">Selecciona la categoría de tu licencia</option>
+                        <option value="UEFA Pro">UEFA Pro</option>
+                        <option value="UEFA A">UEFA A</option>
+                        <option value="UEFA B">UEFA B</option>
+                        <option value="Conmebol Pro">Conmebol Pro</option>
+                        <option value="Conmebol A">Conmebol A</option>
+                        <option value="Conmebol B">Conmebol B</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+    
+                    <label for="experienceYears" class="etiqueta">Años de Experiencia como Entrenador:</label>
+                    <input type="number" id="experienceYears" name="experienceYears" class="input-texto" min="0" required>
+    
+                    <label class="etiqueta">Niveles en los que has entrenado:</label>
+                    <div class="opciones">
+                        <label>
+                            <input type="checkbox" name="levels[]" value="Profesional">
+                            <span class="custom-checkbox"></span>
+                            Profesional
+                        </label>
+                        <label>
+                            <input type="checkbox" name="levels[]" value="Semi-Profesional">
+                            <span class="custom-checkbox"></span>
+                            Semi-Profesional
+                        </label>
+                        <label>
+                            <input type="checkbox" name="levels[]" value="Juvenil">
+                            <span class="custom-checkbox"></span>
+                            Juvenil
+                        </label>
+                        <label>
+                            <input type="checkbox" name="levels[]" value="Formativo">
+                            <span class="custom-checkbox"></span>
+                            Formativo
+                        </label>
+                    </div>
+                    <div id="error-niveles" class="mensaje-error"></div>
+    
+                    <label class="etiqueta">Especializaciones o Certificaciones:</label>
+                    <div class="opciones">
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Tácticas Avanzadas">
+                            <span class="custom-checkbox"></span>
+                            Tácticas Avanzadas
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Entrenamiento Físico">
+                            <span class="custom-checkbox"></span>
+                            Entrenamiento Físico
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Desarrollo de Juveniles">
+                            <span class="custom-checkbox"></span>
+                            Desarrollo de Juveniles
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Análisis de Video">
+                            <span class="custom-checkbox"></span>
+                            Análisis de Video
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Psicología Deportiva">
+                            <span class="custom-checkbox"></span>
+                            Psicología Deportiva
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Scouting">
+                            <span class="custom-checkbox"></span>
+                            Scouting
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Preparación de Porteros">
+                            <span class="custom-checkbox"></span>
+                            Preparación de Porteros
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Medicina Deportiva">
+                            <span class="custom-checkbox"></span>
+                            Medicina Deportiva
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Nutrición Deportiva">
+                            <span class="custom-checkbox"></span>
+                            Nutrición Deportiva
+                        </label>
+                        <!-- Especializaciones añadidas -->
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Gestión Deportiva">
+                            <span class="custom-checkbox"></span>
+                            Gestión Deportiva
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Liderazgo">
+                            <span class="custom-checkbox"></span>
+                            Liderazgo
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Comunicación Efectiva">
+                            <span class="custom-checkbox"></span>
+                            Comunicación Efectiva
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Prevención de Lesiones">
+                            <span class="custom-checkbox"></span>
+                            Prevención de Lesiones
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Rehabilitación Física">
+                            <span class="custom-checkbox"></span>
+                            Rehabilitación Física
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Estrategia de Juego">
+                            <span class="custom-checkbox"></span>
+                            Estrategia de Juego
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Uso de Tecnología en el Entrenamiento">
+                            <span class="custom-checkbox"></span>
+                            Uso de Tecnología en el Entrenamiento
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Gestión de Equipos">
+                            <span class="custom-checkbox"></span>
+                            Gestión de Equipos
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Evaluación de Rendimiento">
+                            <span class="custom-checkbox"></span>
+                            Evaluación de Rendimiento
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Desarrollo de Jugadores">
+                            <span class="custom-checkbox"></span>
+                            Desarrollo de Jugadores
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Educación Continua">
+                            <span class="custom-checkbox"></span>
+                            Educación Continua
+                        </label>
+                        <label>
+                            <input type="checkbox" name="specializations[]" value="Metodología de Entrenamiento">
+                            <span class="custom-checkbox"></span>
+                            Metodología de Entrenamiento
+                        </label>
+                    </div>
+                    <div id="error-especializaciones" class="mensaje-error"></div>
+    
+                    <label for="coachingPhilosophy" class="etiqueta">Filosofía de Entrenamiento:</label>
+                    <textarea id="coachingPhilosophy" name="coachingPhilosophy" class="textarea-descripcion" rows="4" placeholder="Describe brevemente tu filosofía de entrenamiento..." required></textarea>
+    
+                    <h3 class="subtitulo-paso">Historial de Equipos Entrenados</h3>
+                    <div id="equiposEntrenados" class="historial-equipos">
+                        <div class="entrada-equipo">
+                            <label class="etiqueta">Nombre del Club:</label>
+                            <input type="text" name="clubName[]" class="input-texto" required>
+    
+                            <label class="etiqueta">Categoría:</label>
+                            <input type="text" name="clubCategory[]" class="input-texto" required>
+    
+                            <label class="etiqueta">País:</label>
+                            <input type="text" name="clubCountry[]" class="input-texto" required>
+    
+                            <label class="etiqueta">Fecha de Inicio:</label>
+                            <input type="date" name="startDate[]" class="input-fecha" required>
+    
+                            <label class="etiqueta">Fecha de Fin:</label>
+                            <input type="date" name="endDate[]" class="input-fecha">
+                            <div class="opciones actualmente-opcion">
+                                <label>
+                                    <input type="checkbox" name="currently[]" value="Actualmente">
+                                    <span class="custom-checkbox actualmente-checkbox"></span>
+                                    Actualmente
+                                </label>
+                            </div>
+    
+                            <label class="etiqueta">Logros y Responsabilidades:</label>
+                            <textarea name="achievements[]" class="textarea-descripcion" rows="3" placeholder="Describe los logros y responsabilidades..."></textarea>
+    
+                            <button type="button" class="boton-eliminar"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        </div>
+                    </div>
+                    <button type="button" id="agregarEquipo" class="boton-agregar"><i class="fas fa-plus"></i> Añadir Otro Equipo</button>
+    
+                    <label for="awards" class="etiqueta">Premios y Distinciones (Opcional):</label>
+                    <textarea id="awards" name="awards" class="textarea-descripcion" rows="4" placeholder="Puedes agregar premios y distinciones obtenidas..."></textarea>
+                </div>
+    
+                <!-- Pestaña 3: Contenido Multimedia -->
+                <div class="pestaña">
+                    <h2 class="titulo-paso">Contenido Multimedia</h2>
+    
+                    <div class="profile-pic-container">
+                        <label for="profilePic" class="etiqueta">Foto de Perfil:</label>
+                        <div class="upload-wrapper">
+                            <input type="file" id="profilePic" name="profilePic" class="input-foto-perfil" accept="image/*" required>
+                            <label for="profilePic" class="custom-upload">
+                                <i class="fas fa-upload"></i> Seleccionar Imagen
+                            </label>
+                        </div>
+                        <div id="preview" class="preview">
+                            <img id="previewImg" src="#" alt="Vista previa" style="display: none;">
+                        </div>
+                    </div>
+    
+                    <label for="profileDescription" class="etiqueta">Descripción para Perfil:</label>
+                    <textarea id="profileDescription" name="profileDescription" class="textarea-descripcion" rows="4" placeholder="Escribe una breve descripción sobre ti..." required></textarea>
+    
+                    <h3 class="subtitulo-paso">Redes Sociales Profesionales</h3>
+                    <div id="enlacesRedes" class="enlaces-redes">
+                        <div class="entrada-red-social">
+                            <select name="socialPlatform[]" class="selector-personalizado" required>
+                                <option value="">Selecciona la red social</option>
+                                <option value="LinkedIn">LinkedIn</option>
+                                <option value="Twitter">Twitter</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="YouTube">YouTube</option>
+                            </select>
+                            <input type="url" name="socialURL[]" class="input-enlace-red" placeholder="Enlace a la red social" required>
+                            <button type="button" class="boton-eliminar"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        </div>
+                    </div>
+                    <button type="button" id="agregarRedSocial" class="boton-agregar"><i class="fas fa-plus"></i> Añadir Otra Red Social</button>
+    
+                    <!-- Sección "Videos Destacados" eliminada -->
+    
+                </div>
+    
+                <div class="botones-navegacion">
+                    <button type="button" id="prevBtn" class="boton-anterior">&lt; Anterior</button>
+                    <button type="button" id="nextBtn" class="boton-siguiente">Siguiente &gt;</button>
+                    <button type="submit" id="submitBtn" class="boton-enviar">Enviar &gt;</button>
+                </div>
+            </form>
+        </div> <!-- FORMULARIO -->
+    </main>    
+    
+    <footer class="pie-pagina"> <!-- FOOTER -->
+
+        <div class="pie-pagina__enlaces">
+            <a href="#enlace1" class="pie-pagina__enlace">INICIO</a>
+            <a href="#enlace2" class="pie-pagina__enlace">QUIENES SOMOS</a>
+            <a href="#enlace3" class="pie-pagina__enlace">CLUBES</a>
+            <a href="#enlace4" class="pie-pagina__enlace">REGISTRARSE</a>
+        </div>
+        <div class="pie-pagina__redes-sociales">
+            <a href="https://instagram.com" class="pie-pagina__icono-social" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" class="pie-pagina__icono-social" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <div class="pie-pagina__contacto">
+            <p class="pie-pagina__info-contacto">Contacto: scoutingtalentgo@gmail.com | Tel: +599 94 252 402</p>
+            <p class="pie-pagina__ubicacion">Ubicación: Montevideo, Uruguay.</p>
+        </div>
+
+        <hr class="pie-pagina__separador">
+
+        <div class="pie-pagina__copyright">
+            &copy; 2024 ScoutingTalentoGo. Todos los derechos reservados.
+        </div>
+
+    </footer> <!-- FOOTER -->
+
+    <script>
+
+        // MENÚ HEADER
+function mostrarMenu() {
+    document.getElementById('menu-lateral').style.width = '250px';
+}
+function cerrarMenu() {
+    document.getElementById('menu-lateral').style.width = '0';
+}
+function toggleSubmenu(event) {
+    event.preventDefault();
+    var submenuContent = event.currentTarget.nextElementSibling;
+    var flecha = event.currentTarget.querySelector('.flecha');
+
+    if (submenuContent.classList.contains('activo')) {
+        submenuContent.classList.remove('activo');
+        flecha.classList.remove('fa-caret-up');
+        flecha.classList.add('fa-caret-down');
+    } else {
+        submenuContent.classList.add('activo');
+        flecha.classList.remove('fa-caret-down');
+        flecha.classList.add('fa-caret-up');
+    }
+}
+// MENÚ HEADER
+
+// MANEJO DEL FORMULARIO
+document.addEventListener('DOMContentLoaded', () => {
+    const formulario = document.getElementById('regForm');
+    const pestañas = Array.from(document.getElementsByClassName('pestaña'));
+    const botonAnterior = document.getElementById('prevBtn');
+    const botonSiguiente = document.getElementById('nextBtn');
+    const botonEnviar = document.getElementById('submitBtn');
+    const barraProgreso = document.getElementById('progress');
+    const pasos = document.querySelectorAll('.pasos-progreso .paso');
+    let pestañaActual = 0;
+
+    mostrarPestaña(pestañaActual);
+
+    function mostrarPestaña(n) {
+        pestañas.forEach((pestaña, indice) => {
+            pestaña.style.display = (indice === n) ? 'block' : 'none';
+            pestaña.classList.toggle('pestaña-activa', indice === n);
+        });
+
+        botonAnterior.style.display = (n === 0) ? 'none' : 'flex';
+        if (n === (pestañas.length - 1)) {
+            botonSiguiente.style.display = 'none';
+            botonEnviar.style.display = 'flex';
+        } else {
+            botonSiguiente.style.display = 'flex';
+            botonEnviar.style.display = 'none';
+        }
+
+        actualizarBarraProgreso(n);
+    }
+
+    function siguienteAnterior(n) {
+        if (n === 1 && !validarFormulario()) return false;
+        pestañaActual += n;
+        if (pestañaActual >= pestañas.length) {
+            formulario.submit();
+            return false;
+        }
+        mostrarPestaña(pestañaActual);
+    }
+
+    function validarFormulario() {
+        let valido = true;
+        const camposActuales = pestañas[pestañaActual].querySelectorAll('input, select, textarea');
+        camposActuales.forEach(campo => {
+            if (!campo.checkValidity()) {
+                campo.classList.add('invalido');
+                valido = false;
+            } else {
+                campo.classList.remove('invalido');
+            }
+        });
+
+        if (pestañaActual === 0 && !validarIdiomas()) {
+            valido = false;
+        }
+
+        if (pestañaActual === 1 && !validarEspecializaciones()) {
+            valido = false;
+        }
+
+        if (pestañaActual === 0 && !validarConfirmaciones()) {
+            valido = false;
+        }
+
+        return valido;
+    }
+
+    function validarIdiomas() {
+        const idiomasSeleccionados = document.querySelectorAll('input[name="languages[]"]:checked');
+        const errorIdiomas = document.getElementById('error-idiomas');
+
+        if (idiomasSeleccionados.length === 0) {
+            errorIdiomas.textContent = 'Por favor, selecciona al menos un idioma que hables.';
+            return false;
+        } else {
+            errorIdiomas.textContent = '';
+            return true;
+        }
+    }
+
+    function validarEspecializaciones() {
+        const especializacionesSeleccionadas = document.querySelectorAll('input[name="specializations[]"]:checked');
+        const errorEspecializaciones = document.getElementById('error-especializaciones');
+
+        if (especializacionesSeleccionadas.length === 0) {
+            errorEspecializaciones.textContent = 'Por favor, selecciona al menos una especialización.';
+            return false;
+        } else {
+            errorEspecializaciones.textContent = '';
+            return true;
+        }
+    }
+
+    function validarConfirmaciones() {
+        const email = document.getElementById('email').value;
+        const confirmEmail = document.getElementById('confirmEmail').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (email !== confirmEmail) {
+            alert('Los correos electrónicos no coinciden.');
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            alert('Las contraseñas no coinciden.');
+            return false;
+        }
+
+        return true;
+    }
+
+    botonAnterior.addEventListener('click', () => {
+        siguienteAnterior(-1);
+    });
+
+    botonSiguiente.addEventListener('click', () => {
+        siguienteAnterior(1);
+    });
+
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('¡Formulario enviado con éxito!');
+        formulario.reset();
+        pestañaActual = 0;
+        mostrarPestaña(pestañaActual);
+        resetearEntradasDinamicas();
+    });
+
+    function resetearEntradasDinamicas() {
+        document.getElementById('equiposEntrenados').innerHTML = `
+            <div class="entrada-equipo">
+                <label class="etiqueta">Nombre del Club:</label>
+                <input type="text" name="clubName[]" class="input-texto" required>
+
+                <label class="etiqueta">Categoría:</label>
+                <input type="text" name="clubCategory[]" class="input-texto" required>
+
+                <label class="etiqueta">País:</label>
+                <input type="text" name="clubCountry[]" class="input-texto" required>
+
+                <label class="etiqueta">Fecha de Inicio:</label>
+                <input type="date" name="startDate[]" class="input-fecha" required>
+
+                <label class="etiqueta">Fecha de Fin:</label>
+                <input type="date" name="endDate[]" class="input-fecha">
+                <label class="actualmente-label">
+                    <input type="checkbox" name="currently[]" value="Actualmente">
+                    Actualmente
+                </label>
+
+                <label class="etiqueta">Logros y Responsabilidades:</label>
+                <textarea name="achievements[]" class="textarea-descripcion" rows="3" placeholder="Describe los logros y responsabilidades..."></textarea>
+
+                <button type="button" class="boton-eliminar"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            </div>
+        `;
+        document.getElementById('enlacesRedes').innerHTML = `
+            <div class="entrada-red-social">
+                <select name="socialPlatform[]" class="selector-personalizado" required>
+                    <option value="">Selecciona la red social</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="YouTube">YouTube</option>
+                </select>
+                <input type="url" name="socialURL[]" class="input-enlace-red" placeholder="Enlace a la red social" required>
+                <button type="button" class="boton-eliminar"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            </div>
+        `;
+    }
+
+    const botonAgregarEquipo = document.getElementById('agregarEquipo');
+    const equiposEntrenadosDiv = document.getElementById('equiposEntrenados');
+
+    botonAgregarEquipo.addEventListener('click', () => {
+        const entradaEquipo = document.createElement('div');
+        entradaEquipo.classList.add('entrada-equipo');
+        entradaEquipo.innerHTML = `
+            <label class="etiqueta">Nombre del Club:</label>
+            <input type="text" name="clubName[]" class="input-texto" required>
+
+            <label class="etiqueta">Categoría:</label>
+            <input type="text" name="clubCategory[]" class="input-texto" required>
+
+            <label class="etiqueta">País:</label>
+            <input type="text" name="clubCountry[]" class="input-texto" required>
+
+            <label class="etiqueta">Fecha de Inicio:</label>
+            <input type="date" name="startDate[]" class="input-fecha" required>
+
+            <label class="etiqueta">Fecha de Fin:</label>
+            <input type="date" name="endDate[]" class="input-fecha">
+            <label class="actualmente-label">
+                <input type="checkbox" name="currently[]" value="Actualmente">
+                Actualmente
+            </label>
+
+            <label class="etiqueta">Logros y Responsabilidades:</label>
+            <textarea name="achievements[]" class="textarea-descripcion" rows="3" placeholder="Describe los logros y responsabilidades..."></textarea>
+
+            <button type="button" class="boton-eliminar"><i class="fas fa-trash-alt"></i> Eliminar</button>
+        `;
+        equiposEntrenadosDiv.appendChild(entradaEquipo);
+    });
+
+    equiposEntrenadosDiv.addEventListener('click', (e) => {
+        if (e.target.closest('.boton-eliminar')) {
+            e.target.closest('.entrada-equipo').remove();
+        }
+    });
+
+    const botonAgregarRedSocial = document.getElementById('agregarRedSocial');
+    const enlacesRedesDiv = document.getElementById('enlacesRedes');
+
+    botonAgregarRedSocial.addEventListener('click', () => {
+        const entradaRedSocial = document.createElement('div');
+        entradaRedSocial.classList.add('entrada-red-social');
+        entradaRedSocial.innerHTML = `
+            <select name="socialPlatform[]" class="selector-personalizado" required>
+                <option value="">Selecciona la red social</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Twitter">Twitter</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="YouTube">YouTube</option>
+            </select>
+            <input type="url" name="socialURL[]" class="input-enlace-red" placeholder="Enlace a la red social" required>
+            <button type="button" class="boton-eliminar"><i class="fas fa-trash-alt"></i> Eliminar</button>
+        `;
+        enlacesRedesDiv.appendChild(entradaRedSocial);
+    });
+
+    enlacesRedesDiv.addEventListener('click', (e) => {
+        if (e.target.closest('.boton-eliminar')) {
+            e.target.closest('.entrada-red-social').remove();
+        }
+    });
+
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+
+        togglePassword.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+    });
+
+    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+
+    toggleConfirmPassword.addEventListener('click', () => {
+        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPasswordInput.setAttribute('type', type);
+
+        toggleConfirmPassword.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+    });
+
+    function actualizarBarraProgreso(n) {
+        const porcentajeProgreso = ((n) / (pestañas.length - 1)) * 100;
+        barraProgreso.style.width = `${porcentajeProgreso}%`;
+
+        pasos.forEach((paso, indice) => {
+            if (indice <= n) {
+                paso.classList.add('activo');
+            } else {
+                paso.classList.remove('activo');
+            }
+        });
+    }
+
+    const profilePicInput = document.getElementById('profilePic');
+    if (profilePicInput) {
+        profilePicInput.addEventListener('change', function (event) {
+            const preview = document.getElementById('previewImg');
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '#';
+                preview.style.display = 'none';
+            }
+        });
+    }
+
+    const selectorPais = document.getElementById('country');
+    const inputTelefono = document.getElementById('phone');
+
+    const codigosTelefonicos = {
+                "AG": "+1-268",
+                "AR": "+54",
+                "BS": "+1-242",
+                "BB": "+1-246",
+                "BZ": "+501",
+                "BO": "+591",
+                "BR": "+55",
+                "CA": "+1",
+                "CL": "+56",
+                "CO": "+57",
+                "CR": "+506",
+                "CU": "+53",
+                "DM": "+1-767",
+                "DO": "+1-809",
+                "EC": "+593",
+                "SV": "+503",
+                "US": "+1",
+                "GD": "+1-473",
+                "GT": "+502",
+                "GY": "+592",
+                "HT": "+509",
+                "HN": "+504",
+                "JM": "+1-876",
+                "KN": "+1-869",
+                "LC": "+1-758",
+                "MX": "+52",
+                "NI": "+505",
+                "PA": "+507",
+                "PY": "+595",
+                "PE": "+51",
+                "SR": "+597",
+                "VC": "+1-784",
+                "TT": "+1-868",
+                "UY": "+598",
+                "VE": "+58",
+                "AL": "+355",
+                "DE": "+49",
+                "AD": "+376",
+                "AM": "+374",
+                "AT": "+43",
+                "BE": "+32",
+                "BY": "+375",
+                "BA": "+387",
+                "BG": "+359",
+                "CY": "+357",
+                "VA": "+379",
+                "HR": "+385",
+                "DK": "+45",
+                "SK": "+421",
+                "SI": "+386",
+                "ES": "+34",
+                "EE": "+372",
+                "FI": "+358",
+                "FR": "+33",
+                "GE": "+995",
+                "GR": "+30",
+                "HU": "+36",
+                "IE": "+353",
+                "IS": "+354",
+                "IT": "+39",
+                "XK": "+383",
+                "LV": "+371",
+                "LI": "+423",
+                "LT": "+370",
+                "LU": "+352",
+                "MT": "+356",
+                "MD": "+373",
+                "MC": "+377",
+                "ME": "+382",
+                "NO": "+47",
+                "NL": "+31",
+                "PL": "+48",
+                "PT": "+351",
+                "GB": "+44",
+                "CZ": "+420",
+                "MK": "+389",
+                "RO": "+40",
+                "RU": "+7",
+                "SM": "+378",
+                "RS": "+381",
+                "SE": "+46",
+                "CH": "+41",
+                "TR": "+90",
+                "UA": "+380",
+                "AF": "+93",
+                "SA": "+966",
+                "AM": "+374",
+                "AZ": "+994",
+                "BH": "+973",
+                "BD": "+880",
+                "BT": "+975",
+                "BN": "+673",
+                "KH": "+855",
+                "CN": "+86",
+                "CY": "+357",
+                "KP": "+850",
+                "KR": "+82",
+                "AE": "+971",
+                "PH": "+63",
+                "GE": "+995",
+                "IN": "+91",
+                "ID": "+62",
+                "IQ": "+964",
+                "IR": "+98",
+                "IL": "+972",
+                "JP": "+81",
+                "JO": "+962",
+                "KZ": "+7",
+                "KG": "+996",
+                "KW": "+965",
+                "LA": "+856",
+                "LB": "+961",
+                "MY": "+60",
+                "MV": "+960",
+                "MN": "+976",
+                "MM": "+95",
+                "NP": "+977",
+                "OM": "+968",
+                "PK": "+92",
+                "QA": "+974",
+                "RU": "+7",
+                "SG": "+65",
+                "SY": "+963",
+                "LK": "+94",
+                "TJ": "+992",
+                "TH": "+66",
+                "TL": "+670",
+                "TM": "+993",
+                "UZ": "+998",
+                "VN": "+84",
+                "YE": "+967",
+                "ZA": "+27",
+                "DZ": "+213",
+                "AO": "+244",
+                "BJ": "+229",
+                "BW": "+267",
+                "BF": "+226",
+                "BI": "+257",
+                "CV": "+238",
+                "CM": "+237",
+                "TD": "+235",
+                "KM": "+269",
+                "CG": "+242",
+                "CD": "+243",
+                "CI": "+225",
+                "DJ": "+253",
+                "EG": "+20",
+                "ER": "+291",
+                "ET": "+251",
+                "GA": "+241",
+                "GM": "+220",
+                "GH": "+233",
+                "GN": "+224",
+                "GW": "+245",
+                "GQ": "+240",
+                "KE": "+254",
+                "LS": "+266",
+                "LR": "+231",
+                "LY": "+218",
+                "MG": "+261",
+                "MW": "+265",
+                "ML": "+223",
+                "MA": "+212",
+                "MU": "+230",
+                "MR": "+222",
+                "MZ": "+258",
+                "NA": "+264",
+                "NE": "+227",
+                "NG": "+234",
+                "RW": "+250",
+                "EH": "+212",
+                "SN": "+221",
+                "SC": "+248",
+                "SL": "+232",
+                "SO": "+252",
+                "SS": "+211",
+                "SD": "+249",
+                "SZ": "+268",
+                "TZ": "+255",
+                "TG": "+228",
+                "TN": "+216",
+                "UG": "+256",
+                "ZM": "+260",
+                "ZW": "+263",
+                "AU": "+61",
+                "FJ": "+679",
+                "KI": "+686",
+                "MH": "+692",
+                "FM": "+691",
+                "NR": "+674",
+                "NZ": "+64",
+                "PW": "+680",
+                "PG": "+675",
+                "SB": "+677",
+                "TO": "+676",
+                "TV": "+688",
+                "VU": "+678"
+            };
+
+    function actualizarCodigoTelefono() {
+        const paisSeleccionado = selectorPais.value;
+        const codigoPais = codigosTelefonicos[paisSeleccionado] || '';
+        const numeroTelefono = inputTelefono.value.replace(/^\+\d{1,4}\s*/, '').trim();
+
+        inputTelefono.value = codigoPais ? `${codigoPais} ${numeroTelefono}` : numeroTelefono;
+    }
+
+    selectorPais.addEventListener('change', actualizarCodigoTelefono);
+
+    inputTelefono.addEventListener('focus', () => {
+        if (!inputTelefono.value.startsWith('+')) {
+            actualizarCodigoTelefono();
+        }
+    });
+
+    inputTelefono.addEventListener('blur', actualizarCodigoTelefono);
+
+    equiposEntrenadosDiv.addEventListener('change', (e) => {
+        if (e.target.name === 'currently[]') {
+            const entradaEquipo = e.target.closest('.entrada-equipo');
+            const fechaFinInput = entradaEquipo.querySelector('input[name="endDate[]"]');
+            if (e.target.checked) {
+                fechaFinInput.disabled = true;
+                fechaFinInput.value = '';
+                e.target.parentElement.style.backgroundColor = '#ff5757';
+                e.target.parentElement.style.color = '#fff';
+                e.target.parentElement.style.borderRadius = '5px';
+                e.target.parentElement.style.padding = '5px 10px';
+            } else {
+                fechaFinInput.disabled = false;
+                e.target.parentElement.style.backgroundColor = 'transparent';
+                e.target.parentElement.style.color = '#ff5757';
+                e.target.parentElement.style.borderRadius = '5px';
+                e.target.parentElement.style.padding = '0';
+            }
+        }
+    });
+
+});
+        
+        </script>
+
+</body>
+
+</html>
